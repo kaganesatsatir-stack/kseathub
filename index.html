@@ -56,23 +56,42 @@
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=1600&h=900&fit=crop') center/cover;
             color: white;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             animation: fadeIn 1s ease;
+            position: relative;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.4) 100%);
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
         }
 
         header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.4rem;
+            opacity: 1;
             animation: fadeInUp 1s ease 0.2s both;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
         }
 
         .container {
@@ -82,9 +101,11 @@
         }
 
         .intro {
-            background: #f8f9fa;
-            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.95) 0%, rgba(255,255,255,0.95) 100%),
+                        url('https://images.unsplash.com/photo-1558769132-cb1aea8a95c1?w=1600&h=600&fit=crop') center/cover;
+            padding: 4rem 2rem;
             text-align: center;
+            box-shadow: inset 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .intro h2 {
@@ -174,9 +195,11 @@
         }
 
         .solutions {
-            background: #e8f5e9;
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.95) 0%, rgba(200, 230, 201, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1600&h=800&fit=crop') center/cover;
             padding: 4rem 2rem;
             margin: 4rem 0;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.1);
         }
 
         .solutions h2 {
@@ -214,10 +237,16 @@
         }
 
         footer {
-            background: #333;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
         @media (max-width: 768px) {
@@ -226,6 +255,14 @@
             }
 
             .stat-number {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-gallery h2 {
                 font-size: 2rem;
             }
         }
@@ -264,6 +301,138 @@
             </div>
         </div>
     </div>
+
+    </section>
+
+    <section class="recycling-section">
+        <div class="container">
+            <h2 class="animate-on-scroll">♻️ Tekstil Geri Dönüşümü Nedir?</h2>
+            <p class="section-intro animate-on-scroll">Tekstil geri dönüşümü, kullanılmış giysilerin ve kumaşların yeni ürünlere dönüştürülmesi sürecidir. Bu süreç hem çevreyi korur hem de kaynakları verimli kullanır.</p>
+            
+            <div class="recycling-importance animate-on-scroll">
+                <div class="importance-card">
+                    <div class="importance-icon">💧</div>
+                    <h3>Su Tasarrufu</h3>
+                    <p class="big-number">20,000 L</p>
+                    <p>1 kg geri dönüştürülmüş tekstil, 20,000 litre su tasarrufu sağlar</p>
+                </div>
+                <div class="importance-card">
+                    <div class="importance-icon">🌍</div>
+                    <h3>CO₂ Azaltımı</h3>
+                    <p class="big-number">3.6 kg</p>
+                    <p>1 kg geri dönüşüm, 3.6 kg CO₂ emisyonunu önler</p>
+                </div>
+                <div class="importance-card">
+                    <div class="importance-icon">⚡</div>
+                    <h3>Enerji Tasarrufu</h3>
+                    <p class="big-number">%70</p>
+                    <p>Yeni üretim yerine geri dönüşümle %70 daha az enerji kullanılır</p>
+                </div>
+                <div class="importance-card">
+                    <div class="importance-icon">🗑️</div>
+                    <h3>Çöp Azaltımı</h3>
+                    <p class="big-number">85%</p>
+                    <p>Geri dönüşümle çöp sahalarına giden atık %85 azaltılabilir</p>
+                </div>
+            </div>
+
+            <div class="recycling-process">
+                <h3 class="animate-on-scroll">🔄 Geri Dönüşüm Süreci Nasıl İşler?</h3>
+                <div class="process-timeline">
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">1</div>
+                        <div class="step-image">
+                            <img src="https://images.unsplash.com/photo-1558769132-cb1aea8a95c1?w=400&h=300&fit=crop" alt="Toplama">
+                        </div>
+                        <div class="step-content">
+                            <h4>📦 Toplama</h4>
+                            <p>Kullanılmış giysiler ve tekstil ürünleri toplanır. Bağış kutuları, geri dönüşüm merkezleri ve toplama noktaları kullanılır.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">2</div>
+                        <div class="step-image">
+                            <img src="https://images.unsplash.com/photo-1603400521630-9f2de124b33b?w=400&h=300&fit=crop" alt="Sınıflandırma">
+                        </div>
+                        <div class="step-content">
+                            <h4>🔍 Sınıflandırma</h4>
+                            <p>Tekstiller kumaş türüne, rengine ve kalitesine göre ayrılır. Yeniden kullanılabilir olanlar ayrıştırılır.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">3</div>
+                        <div class="step-image">
+                            <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=400&h=300&fit=crop" alt="Parçalama">
+                        </div>
+                        <div class="step-content">
+                            <h4>✂️ Parçalama ve Temizleme</h4>
+                            <p>Giysiler küçük parçalara ayrılır, düğme ve fermuarlar çıkarılır. Sonra yıkanıp temizlenir.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">4</div>
+                        <div class="step-image">
+                            <img src="https://images.unsplash.com/photo-1585072364647-13c48f5ac5b8?w=400&h=300&fit=crop" alt="Lif haline getirme">
+                        </div>
+                        <div class="step-content">
+                            <h4>🧶 Lif Haline Getirme</h4>
+                            <p>Kumaşlar öğütülür ve lif haline getirilir. Bu lifler yeni iplik üretiminde kullanılır.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">5</div>
+                        <div class="step-image">
+                            <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=300&fit=crop" alt="Yeni ürün">
+                        </div>
+                        <div class="step-content">
+                            <h4>✨ Yeni Ürün Üretimi</h4>
+                            <p>Geri dönüştürülmüş liflerden yeni giysiler, halılar, yalıtım malzemeleri ve diğer tekstil ürünleri yapılır.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recycling-products animate-on-scroll">
+                <h3>🎁 Geri Dönüştürülmüş Tekstilden Neler Yapılır?</h3>
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div class="product-icon">👕</div>
+                        <h4>Yeni Giysiler</h4>
+                        <p>T-shirt, pantolon ve diğer kıyafetler</p>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-icon">🛋️</div>
+                        <h4>Ev Tekstilleri</h4>
+                        <p>Halı, perde, döşemelik kumaşlar</p>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-icon">🎒</div>
+                        <h4>Çanta ve Aksesuar</h4>
+                        <p>Çanta, cüzdan, ayakkabı</p>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-icon">🏠</div>
+                        <h4>Yalıtım Malzemeleri</h4>
+                        <p>Bina yalıtımı, ses yalıtımı</p>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-icon">🚗</div>
+                        <h4>Otomotiv Parçaları</h4>
+                        <p>Araç içi döşeme ve yalıtım</p>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-icon">🧸</div>
+                        <h4>Oyuncak Dolgusu</h4>
+                        <p>Peluş oyuncaklar ve yastıklar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="fabric-types">
         <div class="container">
@@ -475,6 +644,57 @@
                             <span class="detail-label">Çözülme Süresi:</span>
                             <span class="detail-value">200+ yıl</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="photo-gallery">
+        <div class="container">
+            <h2 class="animate-on-scroll">📸 Tekstil Atıkları: Gerçek Görüntüler</h2>
+            <p class="gallery-intro animate-on-scroll">Dünya genelinde tekstil atıklarının yarattığı çevresel krizi gösteren görüntüler</p>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&h=400&fit=crop" alt="Tekstil atık yığını">
+                    <div class="gallery-overlay">
+                        <h3>Atık Dağları</h3>
+                        <p>Yılda 92 milyon ton tekstil atığı</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=600&h=400&fit=crop" alt="Giysi üretimi">
+                    <div class="gallery-overlay">
+                        <h3>Hızlı Moda</h3>
+                        <p>Aşırı üretim ve tüketim</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea8a95c1?w=600&h=400&fit=crop" alt="Tekstil fabrikası">
+                    <div class="gallery-overlay">
+                        <h3>Su Kirliliği</h3>
+                        <p>Kimyasal boyalar ve atıklar</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&h=400&fit=crop" alt="Sürdürülebilir moda">
+                    <div class="gallery-overlay">
+                        <h3>Geri Dönüşüm</h3>
+                        <p>Çözüm için birlikte hareket</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&h=400&fit=crop" alt="Pamuk tarlası">
+                    <div class="gallery-overlay">
+                        <h3>Pamuk Üretimi</h3>
+                        <p>Yoğun su ve pestisit kullanımı</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=600&h=400&fit=crop" alt="Moda endüstrisi">
+                    <div class="gallery-overlay">
+                        <h3>Bilinçli Tüketim</h3>
+                        <p>Sürdürülebilir seçimler yapın</p>
                     </div>
                 </div>
             </div>
