@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekstil Atıkları ve Dünyaya Zararları</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            animation: fadeIn 1s ease;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .intro h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0s; }
+        .stat-card:nth-child(2) { animation-delay: 0.5s; }
+        .stat-card:nth-child(3) { animation-delay: 1s; }
+        .stat-card:nth-child(4) { animation-delay: 1.5s; }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .problems {
+            margin: 4rem 0;
+        }
+
+        .problems h2 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .problem-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .problem-card p {
+            line-height: 1.8;
+        }
+
+        .solutions {
+            background: #e8f5e9;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .solutions h2 {
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .solution-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .solution-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .solution-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            border-left-width: 8px;
+        }
+
+        .solution-item h3 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌍 Tekstil Atıkları ve Çevreye Etkileri</h1>
+        <p>Moda endüstrisinin gizli maliyeti</p>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <h2 class="animate-on-scroll">Tekstil Atıkları Nedir?</h2>
+            <p class="animate-on-scroll">Tekstil atıkları, giysi üretimi ve tüketimi sonucunda ortaya çıkan, kullanılmayan veya atılan kumaş ve giysi kalıntılarıdır. Moda endüstrisi, dünyanın en kirletici sektörlerinden biridir ve her yıl milyonlarca ton tekstil atığı üretilmektedir.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">92M</div>
+                <div class="stat-label">Ton tekstil atığı yılda</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">%85</div>
+                <div class="stat-label">Çöpe giden giysiler</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">200</div>
+                <div class="stat-label">Yıl parçalanma süresi</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">%10</div>
+                <div class="stat-label">Küresel karbon emisyonları</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="fabric-types">
+        <div class="container">
+            <h2 class="animate-on-scroll">Kumaş Türleri ve Çevresel Etkileri</h2>
+            <p class="section-intro animate-on-scroll">Her kumaş türünün çevreye farklı etkileri vardır. İşte en yaygın tekstil ürünlerinin karşılaştırması:</p>
+            
+            <div class="fabric-grid">
+                <div class="fabric-card animate-on-scroll">
+                    <div class="fabric-icon">👕</div>
+                    <h3>Pamuk (Organik Olmayan)</h3>
+                    <div class="fabric-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Üretim Maliyeti:</span>
+                            <span class="detail-value">10-15 TL/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Su Tüketimi:</span>
+                            <span class="detail-value">10,000-20,000 L/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Karbon Ayak İzi:</span>
+                            <span class="detail-value">5.5 kg CO₂/kg</span>
+                        </div>
+                        <div class="detail-item decompose">
+                            <span class="detail-label">Çözülme Süresi:</span>
+                            <span class="detail-value">1-5 ay</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fabric-card animate-on-scroll">
+                    <div class="fabric-icon">🌿</div>
+                    <h3>Organik Pamuk</h3>
+                    <div class="fabric-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Üretim Maliyeti:</span>
+                            <span class="detail-value">20-30 TL/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Su Tüketimi:</span>
+                            <span class="detail-value">7,000-10,000 L/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Karbon Ayak İzi:</span>
+                            <span class="detail-value">3.2 kg CO₂/kg</span>
+                        </div>
+                        <div class="detail-item decompose">
+                            <span class="detail-label">Çözülme Süresi:</span>
+                            <span class="detail-value">1-5 ay</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fabric-card animate-on-scroll">
+                    <div class="fabric-icon">🧵</div>
+                    <h3>Polyester</h3>
+                    <div class="fabric-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Üretim Maliyeti:</span>
+                            <span class="detail-value">5-8 TL/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Su Tüketimi:</span>
+                            <span class="detail-value">1,500-2,000 L/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Karbon Ayak İzi:</span>
+                            <span class="detail-value">9.5 kg CO₂/kg</span>
+                        </div>
+                        <div class="detail-item decompose danger">
+                            <span class="detail-label">Çözülme Süresi:</span>
+                            <span class="detail-value">200+ yıl</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fabric-card animate-on-scroll">
+                    <div class="fabric-icon">🦙</div>
+                    <h3>Yün</h3>
+                    <div class="fabric-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Üretim Maliyeti:</span>
+                            <span class="detail-value">25-40 TL/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Su Tüketimi:</span>
+                            <span class="detail-value">6,000-8,000 L/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Karbon Ayak İzi:</span>
+                            <span class="detail-value">10.4 kg CO₂/kg</span>
+                        </div>
+                        <div class="detail-item decompose">
+                            <span class="detail-label">Çözülme Süresi:</span>
+                            <span class="detail-value">1-5 yıl</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fabric-card animate-on-scroll">
+                    <div class="fabric-icon">✨</div>
+                    <h3>Naylon</h3>
+                    <div class="fabric-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Üretim Maliyeti:</span>
+                            <span class="detail-value">6-10 TL/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Su Tüketimi:</span>
+                            <span class="detail-value">3,000-4,000 L/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Karbon Ayak İzi:</span>
+                            <span class="detail-value">7.6 kg CO₂/kg</span>
+                        </div>
+                        <div class="detail-item decompose danger">
+                            <span class="detail-label">Çözülme Süresi:</span>
+                            <span class="detail-value">30-40 yıl</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fabric-card animate-on-scroll">
+                    <div class="fabric-icon">🌾</div>
+                    <h3>Keten (Linen)</h3>
+                    <div class="fabric-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Üretim Maliyeti:</span>
+                            <span class="detail-value">15-25 TL/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Su Tüketimi:</span>
+                            <span class="detail-value">2,500-3,500 L/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Karbon Ayak İzi:</span>
+                            <span class="detail-value">2.1 kg CO₂/kg</span>
+                        </div>
+                        <div class="detail-item decompose">
+                            <span class="detail-label">Çözülme Süresi:</span>
+                            <span class="detail-value">2 hafta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fabric-card animate-on-scroll">
+                    <div class="fabric-icon">👔</div>
+                    <h3>Viskoz/Rayon</h3>
+                    <div class="fabric-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Üretim Maliyeti:</span>
+                            <span class="detail-value">8-12 TL/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Su Tüketimi:</span>
+                            <span class="detail-value">5,000-7,000 L/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Karbon Ayak İzi:</span>
+                            <span class="detail-value">6.3 kg CO₂/kg</span>
+                        </div>
+                        <div class="detail-item decompose">
+                            <span class="detail-label">Çözülme Süresi:</span>
+                            <span class="detail-value">5 hafta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fabric-card animate-on-scroll">
+                    <div class="fabric-icon">🎋</div>
+                    <h3>Bambu</h3>
+                    <div class="fabric-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Üretim Maliyeti:</span>
+                            <span class="detail-value">12-18 TL/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Su Tüketimi:</span>
+                            <span class="detail-value">1,000-2,000 L/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Karbon Ayak İzi:</span>
+                            <span class="detail-value">3.8 kg CO₂/kg</span>
+                        </div>
+                        <div class="detail-item decompose">
+                            <span class="detail-label">Çözülme Süresi:</span>
+                            <span class="detail-value">1 yıl</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fabric-card animate-on-scroll">
+                    <div class="fabric-icon">🧥</div>
+                    <h3>Akrilik</h3>
+                    <div class="fabric-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Üretim Maliyeti:</span>
+                            <span class="detail-value">7-11 TL/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Su Tüketimi:</span>
+                            <span class="detail-value">3,500-5,000 L/kg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Karbon Ayak İzi:</span>
+                            <span class="detail-value">8.2 kg CO₂/kg</span>
+                        </div>
+                        <div class="detail-item decompose danger">
+                            <span class="detail-label">Çözülme Süresi:</span>
+                            <span class="detail-value">200+ yıl</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problems">
+        <div class="container">
+            <h2 class="animate-on-scroll">Tekstil Atıklarının Çevreye Zararları</h2>
+            <div class="problem-grid">
+                <div class="problem-card animate-on-scroll">
+                    <h3>💧 Su Kirliliği</h3>
+                    <p>Tekstil boyama ve üretimi, dünyanın en büyük ikinci su kirleticisidir. Kimyasallar ve boyalar su kaynaklarına karışarak ekosisteme zarar verir.</p>
+                </div>
+                <div class="problem-card animate-on-scroll">
+                    <h3>🏭 Hava Kirliliği</h3>
+                    <p>Sentetik kumaşların üretimi ve atıkların yakılması sırasında sera gazları ve zararlı kimyasallar atmosfere salınır.</p>
+                </div>
+                <div class="problem-card animate-on-scroll">
+                    <h3>🗑️ Çöp Sahalarını Doldurma</h3>
+                    <p>Milyonlarca ton giysi her yıl çöp sahalarına gönderilir ve yüzyıllarca parçalanmadan kalır, toprak kirliliğine neden olur.</p>
+                </div>
+                <div class="problem-card animate-on-scroll">
+                    <h3>🌊 Mikroplastik Kirliliği</h3>
+                    <p>Sentetik kumaşlar yıkandığında okyanüslara mikroplastik salınır. Bu plastikler deniz yaşamını tehdit eder.</p>
+                </div>
+                <div class="problem-card animate-on-scroll">
+                    <h3>🌳 Kaynak Tüketimi</h3>
+                    <p>Tekstil üretimi için muazzam miktarda su, enerji ve ham madde kullanılır. Bir kot pantolon için 7.500 litre su gerekir.</p>
+                </div>
+                <div class="problem-card animate-on-scroll">
+                    <h3>☠️ Kimyasal Tehlike</h3>
+                    <p>Tekstil üretiminde kullanılan 8.000'den fazla kimyasal, insan sağlığını ve çevreyi tehdit eder.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solutions">
+        <h2 class="animate-on-scroll">Çözümler: Ne Yapabiliriz?</h2>
+        <div class="solution-list">
+            <div class="solution-item animate-on-scroll">
+                <h3>♻️ Geri Dönüşüm</h3>
+                <p>Kullanılmış giysileri geri dönüşüm merkezlerine veya bağış kuruluşlarına verin. Atık giysilerden yeni ürünler üretilebilir.</p>
+            </div>
+            <div class="solution-item animate-on-scroll">
+                <h3>🛍️ Bilinçli Tüketim</h3>
+                <p>Kaliteli ve uzun ömürlü giysiler satın alın. Hızlı moda yerine sürdürülebilir markaları tercih edin.</p>
+            </div>
+            <div class="solution-item animate-on-scroll">
+                <h3>🔄 Yeniden Kullanım</h3>
+                <p>Eski giysileri farklı amaçlar için kullanın veya tamir edin. İkinci el alışverişi destekleyin.</p>
+            </div>
+            <div class="solution-item animate-on-scroll">
+                <h3>🌱 Doğal Kumaşlar</h3>
+                <p>Organik pamuk, keten ve bambu gibi doğal ve sürdürülebilir kumaşlardan yapılmış giysileri tercih edin.</p>
+            </div>
+            <div class="solution-item animate-on-scroll">
+                <h3>📢 Farkındalık Yaratın</h3>
+                <p>Çevrenizdekileri tekstil atıklarının zararları konusunda bilinçlendirin ve sürdürülebilir modayı teşvik edin.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Tekstil Atıkları Farkındalık Projesi | Çevre için birlikte hareket edelim 🌍</p>
+    </footer>
+
+    <script>
+        // Scroll animasyonu için
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Tüm animate-on-scroll elementlerini gözlemle
+        document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
